@@ -1,0 +1,31 @@
+services:
+  # Django app service
+  web:
+    build: .
+    container_name: hiking_app_web
+    command: python manage.py runserver 0.0.0.0:8000 # Run Django dev server
+    ports:
+      - "8000:8000" # Map port 8000 of the container to the host
+    volumes:
+      - .:/app # Mount the code for live reloading during development
+    depends_on:
+      - db # Ensure the database is ready before the app starts
+    environment:
+      - DEBUG=1 # You can set any environment variables needed for Django
+
+  # PostgreSQL database service
+  db:
+    image: postgres:13
+    container_name: hiking_app_db
+    environment:
+      POSTGRES_USER: hikinguser
+      POSTGRES_PASSWORD: hikingpassword
+      POSTGRES_DB: hikingdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data across restarts
+
+# Named volumes for data persistence
+volumes:
+  postgres_data:
+
+
