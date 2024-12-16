@@ -13,3 +13,7 @@ __pycache__/
 
 # Ignore system files
 .DS_Store
+
+# Ignore secrets and credentials
+config.json
+secrets/
