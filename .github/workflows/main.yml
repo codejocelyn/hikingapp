@@ -28,5 +28,5 @@ jobs:
 
     - name: Run tests
       run: |
-        cd FINALPROJECT/hiking_app
-        python manage.py test
+         cd HIKING_APP/hiking_app
+         python manage.py test
