@@ -17,3 +17,7 @@ __pycache__/
 # Ignore secrets and credentials
 config.json
 secrets/
+
+# Ignore virtual environment directory
+venv/
+
